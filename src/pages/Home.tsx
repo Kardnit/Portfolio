@@ -10,7 +10,7 @@ export function Home(_props: HomeProps) {
       <h1>Atilla Borga Iskender</h1>
       <h2 className="specializations">Software Engineer / Game Developer</h2>
       <p>
-        I am an ICT student at Fontys University of Applied Science I have
+        I am an ICT student at Fontys University of Applied Science. I have
         specialized in "Software Engineering" and "Game Design and Technology".
       </p>
       <p>

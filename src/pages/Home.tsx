@@ -31,7 +31,7 @@ export function Home(_props: HomeProps) {
       <h3>Game Engines:</h3>
       <p>Unity, Phaser</p>
       <h3>Frameworks:</h3>
-      <p>.NET, Spring Boot, NodeJS, ReactJS, NextJS, Angular, Phaser</p>
+      <p>.NET, Spring Boot, ReactJS, Preact, NodeJS, NextJS, Angular, Phaser</p>
       <h3>Services/Tools:</h3>
       <p>
         GitHub, GitHub Actions, Auth0, AWS Cloud, Docker, Kubernetes, Postgres,

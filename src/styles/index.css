@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Poiret One";
-  src: url("./public/assets/fonts/PoiretOne.ttf");
+  src: url("/public/assets/fonts/PoiretOne.ttf");
 }
 
 body {

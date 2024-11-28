@@ -5,7 +5,7 @@ interface ProjectsProps {
   path?: string;
 }
 
-export function Projects(_props: ProjectsProps) {
+export function GameProjects(_props: ProjectsProps) {
   return (
     <div className="projectsPage">
       <ProjectCard
@@ -42,20 +42,6 @@ export function Projects(_props: ProjectsProps) {
         imageUrl="../assets/images/project5.png"
         repoUrl="https://github.com/Kardnit/UnityVFX/tree/development"
         showButton={true}
-      />
-      <ProjectCard
-        title="TLC Quantum Games"
-        bodyText="This online tournament website is a school project that we built for TLC Quantum Games"
-        imageUrl="../assets/images/project6.png"
-        repoUrl=""
-        showButton={false}
-      />
-      <ProjectCard
-        title="Cansbuns"
-        bodyText="This is a website project that was made for a Dutch food company"
-        imageUrl="../assets/images/project7.png"
-        repoUrl=""
-        showButton={false}
       />
     </div>
   );

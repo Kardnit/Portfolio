@@ -16,11 +16,11 @@ export function WebProjects(_props: ProjectsProps) {
         showButton={true}
       />
       <ProjectCard
-        title="Omniweb"
+        title="Exelarium"
         bodyText="This is a website project that I am making for my own company. It is a Full-stack web development company, and the background has falling snippets of code that builds the website."
         imageUrl="../assets/images/project8.png"
-        repoUrl="https://github.com/Kardnit/company-frontend"
-        showButton={true}
+        repoUrl=""
+        showButton={false}
       />
       <ProjectCard
         title="Cansbuns"

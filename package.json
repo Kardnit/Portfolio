@@ -9,12 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "preact": "^10.24.3",
-    "preact-router": "^4.1.2"
+    "@tailwindcss/vite": "^4.1.6",
+    "preact": "^10.26.5",
+    "preact-router": "^4.1.2",
+    "tailwindcss": "^4.1.6",
+    "three": "^0.176.0"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.9.1",
-    "typescript": "~5.6.2",
-    "vite": "^5.4.10"
+    "@preact/preset-vite": "^2.10.1",
+    "@types/three": "^0.176.0",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
   }
 }

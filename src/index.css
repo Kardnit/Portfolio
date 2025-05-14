@@ -5,6 +5,11 @@
   src: url("/assets/fonts/PoiretOne.woff2") format("woff2");
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #0d0d0d;
   font-family: "Poiret One";

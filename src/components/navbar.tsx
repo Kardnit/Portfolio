@@ -24,10 +24,12 @@ export default function Navbar() {
 
   return (
     <nav class="absolute">
-      <h1 class="text-4xl">
+      <div class="text-4xl">
         Atilla Borga <span class="block sm:inline">Iskender</span>
-      </h1>
-      <span class="block font-bold opacity-60">Software Developer</span>
+      </div>
+      <div class="block font-bold opacity-60">
+        Software Developer & <span class="block sm:inline">Web Designer</span>
+      </div>
 
       <div class="mt-8">
         {["Home", "Projects", "Info", "Contact"].map((item) => {

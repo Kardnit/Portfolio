@@ -10,8 +10,11 @@ import Background from "./components/background";
 export default function App() {
   return (
     <>
-      <div class="h-screen w-screen flex items-center justify-center p-8 bg-[#0d0d0d] text-white">
-        <div class="relative w-full h-[80%] sm:w-[95%] sm:h-[95%] p-4 sm:p-6 overflow-hidden">
+      <div
+        class="w-screen flex items-center justify-center p-8 bg-[#0d0d0d] text-white"
+        style={{ height: "calc(var(--vh, 1vh) * 100)" }}
+      >
+        <div class="relative w-full h-full sm:w-[95%] sm:h-[95%] p-4 sm:p-6 overflow-hidden">
           <Background />
           <Navbar />
 

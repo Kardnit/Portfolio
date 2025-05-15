@@ -39,7 +39,7 @@ export default function Navbar() {
 
           return (
             <div
-              class={`cursor-pointer font-bold duration-300 ${
+              class={`cursor-pointer font-bold ${
                 isActive ? "opacity-40" : "opacity-100 hover:opacity-60"
               }`}
               onClick={() => navigateTo(path)}

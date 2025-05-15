@@ -13,6 +13,7 @@ import gsap from "gsap";
 export default function App() {
   const [showLoader, setShowLoader] = useState(true);
   const mainRef = useRef<HTMLDivElement>(null);
+  const [isMonochrome, setIsMonochrome] = useState(false);
 
   useLayoutEffect(() => {
     if (!showLoader && mainRef.current) {
@@ -36,12 +37,22 @@ export default function App() {
           transition: "opacity 0.5s ease-in-out",
         }}
       >
+        <button
+          onClick={() => setIsMonochrome((prev) => !prev)}
+          class="fixed top-1 right-3 z-50 text-white"
+        >
+          {isMonochrome ? "Poly" : "Mono"}
+        </button>
         <div
           class="w-screen flex items-center justify-center p-8"
           style={{ height: "calc(var(--vh, 1vh) * 100)" }}
         >
-          <div class="relative w-full h-full sm:w-[95%] sm:h-[95%] p-4 sm:p-6 overflow-hidden">
-            <Background />
+          <div
+            class={`relative w-full h-full sm:w-[95%] sm:h-[95%] p-4 sm:p-6 overflow-hidden transition-colors duration-300 ${
+              isMonochrome ? "text-black" : "text-white"
+            }`}
+          >
+            <Background isMonochrome={isMonochrome} />
             <Navbar />
 
             <div class="absolute top-0 left-0 w-full h-full pl-30 pr-6 pb-6 pointer-events-none">

@@ -42,7 +42,7 @@ export default function Intro({ onFinish }: Props) {
       ref={loaderRef}
       class="fixed inset-0 z-50 flex items-center justify-center"
     >
-      <div ref={textRef} class="text-3xl">
+      <div ref={textRef} class="text-3xl text-white">
         Welcome to my Portfolio
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "preact/hooks";
 import * as THREE from "three";
+import gsap from "gsap";
 
 type BackgroundProps = {
   isMonochrome: boolean;
@@ -30,7 +31,7 @@ export default function Background({ isMonochrome }: BackgroundProps) {
         u_resolution: {
           value: new THREE.Vector2(window.innerWidth, window.innerHeight),
         },
-        u_monochrome: { value: isMonochrome },
+        u_mode: { value: 0.0 },
       },
       vertexShader: `
         varying vec2 vUv;
@@ -44,7 +45,7 @@ export default function Background({ isMonochrome }: BackgroundProps) {
 
         uniform float u_time;
         uniform vec2 u_resolution;
-        uniform bool u_monochrome;
+        uniform float u_mode; // 0 = color, 1 = mono
         varying vec2 vUv;
 
         float rand(vec2 co) {
@@ -88,17 +89,8 @@ export default function Background({ isMonochrome }: BackgroundProps) {
           float wave2 = sin(vUv.x * 20.0 - u_time * 1.5) * 0.25;
           float offset = wave1 + wave2;
 
-          vec3 color1;
-          vec3 color2;
-
-          if (u_monochrome) {
-            color1 = vec3(1.5);
-            color2 = vec3(1.0);
-          } else {
-            color1 = vec3(0.2, 0.3, 0.6);
-            color2 = vec3(0.1, 0.1, 0.2);
-          }
-
+          vec3 color1 = mix(vec3(0.2, 0.3, 0.6), vec3(1.5), u_mode);
+          vec3 color2 = mix(vec3(0.1, 0.1, 0.2), vec3(1.0), u_mode);
           float blend = clamp(vUv.y + offset, 0.0, 1.0);
           vec3 baseColor = mix(color1, color2, blend);
 
@@ -114,12 +106,11 @@ export default function Background({ isMonochrome }: BackgroundProps) {
             finalColor *= 0.95;
           }
 
-          if (u_monochrome) {
-            float brightness = 0.85 + 0.15 * sin(u_time * 0.5);
-            finalColor *= brightness;
-          } else {
-            finalColor = hueShift(finalColor, u_time * 0.2);
-          }
+          float brightness = 0.85 + 0.15 * sin(u_time * 0.5);
+          finalColor *= mix(1.0, brightness, u_mode);
+
+          vec3 shifted = hueShift(finalColor, u_time * 0.2);
+          finalColor = mix(shifted, finalColor, u_mode); // only apply hue in color mode
 
           gl_FragColor = vec4(finalColor, 1.0);
         }
@@ -159,7 +150,11 @@ export default function Background({ isMonochrome }: BackgroundProps) {
 
   useEffect(() => {
     if (materialRef.current) {
-      materialRef.current.uniforms.u_monochrome.value = isMonochrome;
+      gsap.to(materialRef.current.uniforms.u_mode, {
+        value: isMonochrome ? 1 : 0,
+        duration: 1,
+        ease: "power2.out",
+      });
     }
   }, [isMonochrome]);
 

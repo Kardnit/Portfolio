@@ -11,8 +11,11 @@ export default function Background() {
 
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
+    let canvas: HTMLCanvasElement | null = null;
+
     if (mountRef.current) {
-      mountRef.current.appendChild(renderer.domElement);
+      canvas = renderer.domElement;
+      mountRef.current.appendChild(canvas);
     }
 
     const geometry = new THREE.PlaneGeometry(2, 2);
@@ -95,7 +98,6 @@ export default function Background() {
             finalColor *= 0.95;
           }
 
-          // Apply hue rotation
           float hueSpeed = 0.2;
           vec3 shifted = hueShift(finalColor, u_time * hueSpeed);
 
@@ -114,10 +116,22 @@ export default function Background() {
     };
     animate();
 
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      renderer.setSize(width, height);
+      material.uniforms.u_resolution.value.set(width, height);
+    };
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", handleResize);
+
     return () => {
-      if (mountRef.current) {
-        mountRef.current.removeChild(renderer.domElement);
+      if (canvas && mountRef.current) {
+        mountRef.current.removeChild(canvas);
       }
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("orientationchange", handleResize);
     };
   }, []);
 

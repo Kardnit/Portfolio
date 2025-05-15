@@ -1,14 +1,14 @@
 import { useState, useRef, useLayoutEffect } from "preact/hooks";
 import Router, { Route } from "preact-router";
-import Navbar from "./components/navbar";
+import gsap from "gsap";
+import Intro from "./components/intro";
+import Background from "./components/background";
 import NotFound from "./routes/not-found";
+import Navbar from "./components/navbar";
 import Home from "./routes/home";
 import Projects from "./routes/projects";
 import Info from "./routes/info";
 import Contact from "./routes/contact";
-import Background from "./components/background";
-import Intro from "./components/intro";
-import gsap from "gsap";
 
 export default function App() {
   const [showLoader, setShowLoader] = useState(true);

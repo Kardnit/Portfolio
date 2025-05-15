@@ -8,5 +8,6 @@ const setVh = () => {
 };
 setVh();
 window.addEventListener("resize", setVh);
+window.addEventListener("orientationchange", setVh);
 
 render(<App />, document.getElementById("app")!);

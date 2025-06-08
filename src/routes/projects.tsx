@@ -11,6 +11,14 @@ export default function Projects() {
         </a>
         <br />
         <a
+          href="https://novelarchives.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Novel Archives
+        </a>
+        <br />
+        <a
           href="https://cansbuns.com/"
           target="_blank"
           rel="noopener noreferrer"

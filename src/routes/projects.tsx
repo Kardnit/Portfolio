@@ -49,6 +49,14 @@ export default function Projects() {
         >
           Freelance
         </a>
+        <br />
+        <a
+          href="https://coldpro.pages.dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Coldpro
+        </a>
       </div>
     </div>
   );

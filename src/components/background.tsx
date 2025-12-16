@@ -89,7 +89,7 @@ export default function Background({ isMonochrome }: BackgroundProps) {
           float wave2 = sin(vUv.x * 20.0 - u_time * 1.5) * 0.25;
           float offset = wave1 + wave2;
 
-          vec3 color1 = mix(vec3(0.2, 0.3, 0.6), vec3(1.5), u_mode);
+          vec3 color1 = mix(vec3(0.4, 0.0, 1.0), vec3(1.5), u_mode);
           vec3 color2 = mix(vec3(0.1, 0.1, 0.2), vec3(1.0), u_mode);
           float blend = clamp(vUv.y + offset, 0.0, 1.0);
           vec3 baseColor = mix(color1, color2, blend);
@@ -109,7 +109,7 @@ export default function Background({ isMonochrome }: BackgroundProps) {
           float brightness = 0.85 + 0.15 * sin(u_time * 0.5);
           finalColor *= mix(1.0, brightness, u_mode);
 
-          vec3 shifted = hueShift(finalColor, u_time * 0.2);
+          vec3 shifted = hueShift(finalColor, (u_time - 7.0) * 0.2);
           finalColor = mix(shifted, finalColor, u_mode); // only apply hue in color mode
 
           gl_FragColor = vec4(finalColor, 1.0);

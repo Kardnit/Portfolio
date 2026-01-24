@@ -43,11 +43,11 @@ export default function Projects() {
         </a>
         <br />
         <a
-          href="https://template.exelarium.com/"
+          href="https://htstrade.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Freelance
+          HTS
         </a>
         <br />
         <a
